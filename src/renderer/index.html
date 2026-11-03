@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.modrinth.com https://media.forgecdn.net; font-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EWLLauncher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="bg"><div class="blob a"></div><div class="blob b"></div></div>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">E</div>
+        <div>
+          <div class="brand-name">EWLLauncher</div>
+          <div class="brand-sub" id="brand-ver">Minecraft Java</div>
+        </div>
+      </div>
+      <nav id="nav"></nav>
+      <button class="btn ghost files-btn" id="files-btn">📁 Файлы лаунчера</button>
+      <div class="sidebar-foot" id="sidebar-foot"></div>
+    </aside>
+    <main id="content"></main>
+    <footer id="statusbar" class="hidden">
+      <div class="status-text" id="status-text"></div>
+      <div class="bar"><div class="bar-fill" id="status-fill"></div></div>
+      <button class="btn small ghost" id="status-cancel">Отмена</button>
+    </footer>
+  </div>
+  <div id="toasts"></div>
+  <div id="modal-root"></div>
+
+  <!-- Порядок важен: сначала утилиты, затем страницы, затем роутер -->
+  <script src="ui.js"></script>
+  <script src="optimize-ui.js"></script>
+  <script src="welcome.js"></script>
+  <script src="files-ui.js"></script>
+  <script src="profile-ui.js"></script>
+  <script src="pages/play.js"></script>
+  <script src="pages/versions.js"></script>
+  <script src="pages/market.js"></script>
+  <script src="pages/accounts.js"></script>
+  <script src="pages/servers.js"></script>
+  <script src="pages/skins.js"></script>
+  <script src="pages/stats.js"></script>
+  <script src="pages/friend.js"></script>
+  <script src="pages/settings.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "name": "ewllauncher",
+  "productName": "EWLLauncher",
+  "version": "1.6.3",
+  "description": "EWLLauncher — лаунчер Minecraft Java Edition для Windows",
+  "main": "src/main/index.js",
+  "author": "EWL",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "test": "node tests/smoke.js",
+    "icon": "node tools/make-icon.js",
+    "build": "electron-builder --win --x64",
+    "build:dir": "electron-builder --win --x64 --dir"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.ewl.launcher",
+    "productName": "EWLLauncher",
+    "executableName": "EWLLauncher",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        { "target": "portable", "arch": ["x64"] },
+        { "target": "nsis", "arch": ["x64"] }
+      ]
+    },
+    "portable": {
+      "artifactName": "EWLLauncher-Portable-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "EWLLauncher",
+      "artifactName": "EWLLauncher-Setup-${version}.exe"
+    }
+  }
+}
